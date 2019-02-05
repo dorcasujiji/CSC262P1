@@ -1,4 +1,4 @@
-package edu.smith.cs.csc262.coopsh.apps;
+package main.java.apps;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -6,8 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import edu.smith.cs.csc262.coopsh.ShellEnvironment;
-import edu.smith.cs.csc262.coopsh.Task;
+import main.java.ShellEnvironment;
+import main.java.Task;
 
 /**
  * This Task mimics the UNIX Cat utility, but is cooperative; i.e., it knows it

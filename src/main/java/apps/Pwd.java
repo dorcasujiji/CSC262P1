@@ -1,9 +1,9 @@
-package edu.smith.cs.csc262.coopsh.apps;
+package main.java.apps;
 
 import java.io.File;
 
-import edu.smith.cs.csc262.coopsh.ShellEnvironment;
-import edu.smith.cs.csc262.coopsh.Task;
+import main.java.ShellEnvironment;
+import main.java.Task;
 
 public class Pwd extends Task {
 	

@@ -1,4 +1,4 @@
-package edu.smith.cs.csc262.coopsh.text;
+package main.java.text;
 
 public enum TokenType {
 	Identifier,

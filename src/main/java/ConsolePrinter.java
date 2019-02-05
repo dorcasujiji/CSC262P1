@@ -1,4 +1,4 @@
-package edu.smith.cs.csc262.coopsh;
+package main.java;
 
 /**
  * This task exists at the end of a pipeline, in order to print output to the screen.

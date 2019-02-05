@@ -1,9 +1,9 @@
-package edu.smith.cs.csc262.coopsh.text;
+package main.java.text;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.smith.cs.csc262.coopsh.ShellEnvironment;
+import main.java.ShellEnvironment;
 
 public class ShellParser {
 	

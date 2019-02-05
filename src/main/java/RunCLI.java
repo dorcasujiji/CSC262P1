@@ -1,4 +1,4 @@
-package edu.smith.cs.csc262.coopsh;
+package main.java;
 
 import java.io.BufferedReader;
 import java.io.File;

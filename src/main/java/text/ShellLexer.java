@@ -1,4 +1,4 @@
-package edu.smith.cs.csc262.coopsh.text;
+package main.java.text;
 
 import java.util.ArrayList;
 import java.util.List;

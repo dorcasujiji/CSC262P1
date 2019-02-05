@@ -1,5 +1,4 @@
-package edu.smith.cs.csc262.coopsh;
-
+package main.java;
 /**
  * InputLine is a class that wraps a String
  * @author jfoley

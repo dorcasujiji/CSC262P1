@@ -1,4 +1,4 @@
-package edu.smith.cs.csc262.coopsh;
+package main.java;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,11 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import edu.smith.cs.csc262.coopsh.apps.Cat;
-import edu.smith.cs.csc262.coopsh.apps.Pwd;
-import edu.smith.cs.csc262.coopsh.apps.WordCount;
-import edu.smith.cs.csc262.coopsh.text.ShellParser;
-import edu.smith.cs.csc262.coopsh.text.Token;
+import main.java.apps.*;
+import main.java.text.ShellParser;
+import main.java.text.Token;
 
 /**
  * This represents the state of our shell. The current working directory is a
@@ -64,6 +62,20 @@ public class ShellEnvironment {
 			return new Pwd(this, args);
 		case "wc":
 			return new WordCount(this, args);
+		case "echo":
+			return new Echo(this, args);
+		case "ls":
+			return new ListFiles(this, args);
+		case "grep":
+			return new SimpleGrep(this, args);
+		case "regrep":
+			return new RegexGrep(this, args);
+		case "sort":
+			return new Sort(this, args);
+		case "head":
+			return new Head(this, args);
+		case "tail":
+			return new Tail(this, args);
 		// cd is special.
 		case "cd":
 			if (args.length != 1)
