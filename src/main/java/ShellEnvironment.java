@@ -29,6 +29,8 @@ public class ShellEnvironment {
 	 * This is the answer for pwd.
 	 */
 	public File currentDirectory;
+
+	public String homeDirectory = System.getProperty("user.home");
 	/**
 	 * This is the answer for env.
 	 */
@@ -64,11 +66,13 @@ public class ShellEnvironment {
 			return new WordCount(this, args);
 		case "echo":
 			return new Echo(this, args);
+		case "set":
+			return new SetVar(this, args);
 		case "ls":
 			return new ListFiles(this, args);
 		case "grep":
 			return new SimpleGrep(this, args);
-		case "regrep":
+		case "rgrep":
 			return new RegexGrep(this, args);
 		case "sort":
 			return new Sort(this, args);
@@ -109,8 +113,13 @@ public class ShellEnvironment {
 	 * @param path
 	 */
 	private void executeChangeDir(String path) {
-		// Well, now we have a path.
-		this.currentDirectory = makeFile(path);
+		// if "~" is at beginning of path, find relative to home directory
+		if(path.startsWith("~")) {
+			this.currentDirectory = new File(homeDirectory, path.substring(1));
+		} else {
+			// Well, now we have a path.
+			this.currentDirectory = makeFile(path);
+		}
 
 		// Now make it meaningful...
 		// Only cd into directories...

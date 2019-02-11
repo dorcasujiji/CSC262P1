@@ -122,7 +122,7 @@ public class ShellLexer {
 		for (; position < data.length; position++) {
 			if (data[position] == '\\') {
 				getc();
-				
+
 				// what is it escaping?
 				int escaped = peek();
 				switch (escaped) {
@@ -131,12 +131,17 @@ public class ShellLexer {
 					case '"':
 					case '\'':
 						sb.append((char) getc());
+						break;
 					case 'n':
 						sb.append('\n');
+						getc();
+						break;
 					case 't':
 						sb.append('\t');
+						getc();
+						break;
 					default:
-						error("unhandled escape character: '"+(char) escaped+"'");	
+						error("unhandled escape character: '"+(char) escaped+"'");
 				}
 			}
 			if (data[position] == quote) {

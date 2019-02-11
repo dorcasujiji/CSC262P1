@@ -25,9 +25,20 @@ public class Echo extends Task {
     protected void update() {
         StringBuilder builder = new StringBuilder();
         for(String string: args) {
-            builder.append(string + " ");
+            if(string.startsWith("$")){
+                // get variable with name after $
+                builder.append(env.getVariable(string.substring(1)) + " ");
+            } else {
+                builder.append(string + " ");
+            }
         }
-        this.println(builder.toString());
+
+        String result = builder.toString();
+        String[] lines = result.split("\n");
+        for(String line: lines) {
+            this.println(line);
+        }
+
         this.closeOutput();
         this.exit(0);
         return;

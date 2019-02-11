@@ -25,6 +25,7 @@ public class Token {
 		this.what = what;
 		this.contents = contents;
 	}
+
 	@Override
 	public String toString() {
 		return what+": ["+contents+"]";

@@ -22,11 +22,9 @@ public class ListFiles extends Task {
     @Override
     protected void update() {
         String[] files = currentDir.list();
-        StringBuilder builder = new StringBuilder();
         for(String file: files) {
-            builder.append(file+ " ");
+            this.println(file);
         }
-        this.println(builder.toString());
         this.closeOutput();
         this.exit(0);
         return;

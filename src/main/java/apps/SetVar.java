@@ -3,12 +3,15 @@ package main.java.apps;
 import main.java.ShellEnvironment;
 import main.java.Task;
 
-import java.util.HashMap;
-
+/**
+ * This Task mimics the UNIX "=" utility
+ * sets a variable's value
+ *
+ * @author Dorcas Ujij
+ */
 public class SetVar extends Task {
-    protected HashMap<String, String> map = new HashMap<>();
-    String varName;
-    String varValue;
+    String name;
+    String value;
     /**
      * All tasks are created with a possibly empty list of string arguments!
      *
@@ -17,13 +20,17 @@ public class SetVar extends Task {
      */
     public SetVar(ShellEnvironment env, String[] args) {
         super(env, args);
-        this.varName = args[0];
-        this.varValue = args[1];
+        try {
+            this.name = args[0];
+            this.value = args[1];
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Wrong number of arguments given. ");
+        }
     }
 
     @Override
     protected void update() {
-        map.put(varName, varValue);
+        env.setVariable(name, value);
         this.closeOutput();
         this.exit(0);
         return;
